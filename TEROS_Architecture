@@ -1,0 +1,90 @@
+digraph "TEROS 멀티모달 Agentic AI System 아키텍처" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="TEROS 멀티모달 Agentic AI System 아키텍처" nodesep=0.60 pad=2.0 rankdir=TB ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	subgraph "cluster_사용자 상호작용 계층 (User Interaction Layer)" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="사용자 상호작용 계층 (User Interaction Layer)" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"3c81946eee0c4363a1f76c2aded008bf" [label="교사
+Teacher" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/onprem/client\users.png" shape=none]
+		"9c6bd14312bc4f44966fda6f5a45ef40" [label="학생
+Student" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/onprem/client\users.png" shape=none]
+		"5e396173d0174f2f88c2b95c04e041c7" [label="대시보드
+Dashboard" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/programming/framework\react.png" shape=none]
+		"95fec9437f3641889b15b6cfdc16a410" [label="공동 심의
+Deliberation" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/programming/framework\react.png" shape=none]
+	}
+	subgraph "cluster_자가 발전 엔진 계층 (Self-Evolving Engine Layer)" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="자가 발전 엔진 계층 (Self-Evolving Engine Layer)" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"0c060cb791d7477c98af4ff8f3195424" [label="TEROS-Loop
+Self-Evolving Engine" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/onprem/compute\server.png" shape=none]
+		subgraph "cluster_TEROS-Loop 3단계" {
+			graph [bgcolor="#EBF3E7" fontname="Sans-Serif" fontsize=12 label="TEROS-Loop 3단계" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+			"00493ff6d7944695b9e2ba91697ad049" [label="1. 불일치 포착
+Discrepancy Detection" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/analytics\analytics.png" shape=none]
+			ac148cc1ff5e4fc18e186ddcf115756e [label="2. 원인 분석
+LLM Ensemble" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/ml\sagemaker.png" shape=none]
+			"5ea3984685534d8193615fe2bee95ebb" [label="3. 검증 메커니즘
+Reliability Validation" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/analytics\analytics.png" shape=none]
+		}
+		"0b5792f18f53411480b31da710173fca" [label="개념적 버퍼
+Conceptual Buffer" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/onprem/database\mongodb.png" shape=none]
+		"746ddb9f135f4757b10fa5ff840248c3" [label="교육 지식 온톨로지
+Knowledge Ontology" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/generic/storage\storage.png" shape=none]
+	}
+	subgraph "cluster_신뢰성 기반 분석 계층 (Trustworthy Analytics Layer)" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="신뢰성 기반 분석 계층 (Trustworthy Analytics Layer)" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		subgraph "cluster_기반 모듈" {
+			graph [bgcolor="#EBF3E7" fontname="Sans-Serif" fontsize=12 label="기반 모듈" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+			"649b4f6a5f0442e685b2fdf3846f224d" [label="공정성 강화
+Fairness Module" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/ml\sagemaker.png" shape=none]
+			abf7eb185a2b4ad99dfa837522661c0f [label="설명가능성
+XAI Module" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/ml\sagemaker.png" shape=none]
+			d74930cac48c4f17bc5de0d57d9109d0 [label="맥락 이해
+Context Module" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/ml\sagemaker.png" shape=none]
+		}
+		"259de51171d646e99f154179a77d9525" [label="재능 진단 분석기
+Talent Diagnosis" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/ml\sagemaker.png" shape=none]
+	}
+	subgraph "cluster_데이터 통합 계층 (Data Integration Layer)" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="데이터 통합 계층 (Data Integration Layer)" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		f46d4e7fa7d44b24b291a6d6a9371a1b [label="멀티모달
+데이터 수집기" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/onprem/compute\server.png" shape=none]
+		"5f07e6cac1514506a9ccfebdb53a6687" [label="데이터 전처리
+Preprocessing" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/aws/analytics\analytics.png" shape=none]
+		"61a9de3c5091446a8d50712d0c3f9df0" [label="텍스트
+Text" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/generic/storage\storage.png" shape=none]
+		d6e37aae496a45d8859d80c1f1aa9ae2 [label="이미지
+Image" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/generic/storage\storage.png" shape=none]
+		e41ef10e29844831aa63dc3c82265cc9 [label="음성
+Audio" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/generic/storage\storage.png" shape=none]
+		ca3db29772fc4e8da439f0617f53866b [label="비디오
+Video" height=2.3 image="C:\Users\Sims\AppData\Roaming\Python\Python313\site-packages\resources/generic/storage\storage.png" shape=none]
+	}
+	"3c81946eee0c4363a1f76c2aded008bf" -> "5e396173d0174f2f88c2b95c04e041c7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9c6bd14312bc4f44966fda6f5a45ef40" -> "5e396173d0174f2f88c2b95c04e041c7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3c81946eee0c4363a1f76c2aded008bf" -> "95fec9437f3641889b15b6cfdc16a410" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5e396173d0174f2f88c2b95c04e041c7" -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"95fec9437f3641889b15b6cfdc16a410" -> "746ddb9f135f4757b10fa5ff840248c3" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"61a9de3c5091446a8d50712d0c3f9df0" -> f46d4e7fa7d44b24b291a6d6a9371a1b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d6e37aae496a45d8859d80c1f1aa9ae2 -> f46d4e7fa7d44b24b291a6d6a9371a1b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	e41ef10e29844831aa63dc3c82265cc9 -> f46d4e7fa7d44b24b291a6d6a9371a1b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ca3db29772fc4e8da439f0617f53866b -> f46d4e7fa7d44b24b291a6d6a9371a1b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	f46d4e7fa7d44b24b291a6d6a9371a1b -> "5f07e6cac1514506a9ccfebdb53a6687" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5f07e6cac1514506a9ccfebdb53a6687" -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"259de51171d646e99f154179a77d9525" -> "649b4f6a5f0442e685b2fdf3846f224d" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"259de51171d646e99f154179a77d9525" -> abf7eb185a2b4ad99dfa837522661c0f [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"259de51171d646e99f154179a77d9525" -> d74930cac48c4f17bc5de0d57d9109d0 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"649b4f6a5f0442e685b2fdf3846f224d" -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	abf7eb185a2b4ad99dfa837522661c0f -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d74930cac48c4f17bc5de0d57d9109d0 -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"259de51171d646e99f154179a77d9525" -> "0c060cb791d7477c98af4ff8f3195424" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"0c060cb791d7477c98af4ff8f3195424" -> "00493ff6d7944695b9e2ba91697ad049" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"00493ff6d7944695b9e2ba91697ad049" -> ac148cc1ff5e4fc18e186ddcf115756e [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ac148cc1ff5e4fc18e186ddcf115756e -> "5ea3984685534d8193615fe2bee95ebb" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5ea3984685534d8193615fe2bee95ebb" -> "0b5792f18f53411480b31da710173fca" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"0b5792f18f53411480b31da710173fca" -> "746ddb9f135f4757b10fa5ff840248c3" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"746ddb9f135f4757b10fa5ff840248c3" -> "259de51171d646e99f154179a77d9525" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5e396173d0174f2f88c2b95c04e041c7" -> "0c060cb791d7477c98af4ff8f3195424" [label="피드백" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=dashed]
+	"95fec9437f3641889b15b6cfdc16a410" -> "746ddb9f135f4757b10fa5ff840248c3" [label="승인/거부" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=dashed]
+	d74930cac48c4f17bc5de0d57d9109d0 -> "259de51171d646e99f154179a77d9525" [label="맥락 정보" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=dashed]
+}

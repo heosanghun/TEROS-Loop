@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14-alpine
+    container_name: teros-postgres
+    environment:
+      POSTGRES_USER: teros
+      POSTGRES_PASSWORD: teros_password
+      POSTGRES_DB: teros_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teros"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:6.0
+    container_name: teros-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: teros
+      MONGO_INITDB_ROOT_PASSWORD: teros_password
+      MONGO_INITDB_DATABASE: teros_buffer
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./teros-backend
+      dockerfile: Dockerfile
+    container_name: teros-backend
+    environment:
+      - DATABASE_URL=postgresql://teros:teros_password@postgres:5432/teros_db
+      - MONGODB_URL=mongodb://teros:teros_password@mongodb:27017/teros_buffer?authSource=admin
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./teros-backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend
+  frontend:
+    build:
+      context: ./teros-frontend
+      dockerfile: Dockerfile
+    container_name: teros-frontend
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./teros-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: npm run dev
+
+volumes:
+  postgres_data:
+  mongodb_data:
+
