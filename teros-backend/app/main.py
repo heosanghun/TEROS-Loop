@@ -4,7 +4,7 @@ TEROS Backend Main Application
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import data_collection
+from app.api.routes import data_collection, analytics
 
 app = FastAPI(
     title="TEROS API",
@@ -23,6 +23,7 @@ app.add_middleware(
 
 # API 라우트 등록
 app.include_router(data_collection.router)
+app.include_router(analytics.router)
 
 
 @app.get("/")
