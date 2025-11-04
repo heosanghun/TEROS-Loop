@@ -4,6 +4,8 @@ TEROS Backend Main Application
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.routes import data_collection
+
 app = FastAPI(
     title="TEROS API",
     description="TEROS 멀티모달 Agentic AI System API",
@@ -18,6 +20,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# API 라우트 등록
+app.include_router(data_collection.router)
 
 
 @app.get("/")
